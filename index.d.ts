@@ -1,29 +1,25 @@
-import { Color } from "tns-core-modules/color";
+import { Color } from "@nativescript/core";
 
-declare module "nativescript-google-maps-utils" {
+import { MapView, Position, Marker } from "nativescript-google-maps-sdk-n7";
 
-  import { MapView, Position, Marker } from "nativescript-google-maps-sdk-n7";
+export function enableDebug(debugFn?: ((...args: Array<any>) => any)): void;
+export function disableDebug(): void;
 
-  export function enableDebug(debugFn?: ((...args: Array<any>) => any)): void;
-  export function disableDebug(): void;
+export function setupMarkerCluster(mapView: MapView, markers: Array<Marker>): void;
 
-  export function setupMarkerCluster(mapView: MapView, markers: Array<Marker>): void;
+export function moveCamera(latitude, longitude, zoom): void;
 
-  export function moveCamera(latitude, longitude, zoom): void;
+export function clearMap(): void;
 
-  export function clearMap(): void;
-
-  export interface IHeatmapConfig {
-    provider: any;
-    overlay: any;
-  }
-
-  export function setupHeatmap(mapView: MapView, positions: Array<Position>, colors: Array<Color>, startPoints: Array<number>): IHeatmapConfig;
-  
-  export function removeHeatmap(): void;
-
-  export function setRadius() : void;
-
-  export function setOpacity() : void;
-
+export interface IHeatmapConfig {
+  provider: any;
+  overlay: any;
 }
+
+export function setupHeatmap(mapView: MapView, positions: Array<Position>, colors: Array<Color>, startPoints: Array<number>): IHeatmapConfig;
+
+export function removeHeatmap(): void;
+
+export function setRadius() : void;
+
+export function setOpacity() : void;
