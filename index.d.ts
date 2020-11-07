@@ -1,8 +1,8 @@
 import { Color } from "tns-core-modules/color";
 
-declare module "nativescript-danem-google-maps-utils" {
+declare module "nativescript-google-maps-utils" {
 
-  import { MapView, Position, Marker } from "nativescript-google-maps-sdk";
+  import { MapView, Position, Marker } from "nativescript-google-maps-sdk-n7";
 
   export function enableDebug(debugFn?: ((...args: Array<any>) => any)): void;
   export function disableDebug(): void;
