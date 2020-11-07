@@ -4,7 +4,7 @@ var _mapView = {};
 var heatmaps = {}
 const imageSourceModule = require("tns-core-modules/image-source");
 const Image = require('@nativescript/core/ui/image');
-const utilsModule = require("tns-core-modules/utils/utils");
+const utilsModule = require("@nativescript/core/utils");
 
 /***************************************** CLUSTERING *****************************************/
 
@@ -38,7 +38,7 @@ var GMUClusterManagerDelegateImpl = (function (_super) {
     GMUClusterManagerDelegateImpl.prototype.clusterManagerDidTapCluster = function (clusterManager, cluster) {
         var owner = this._owner.get();
         var nsArray = cluster.items;
-        var listeMarker = utilsModule.ios.collections.nsArrayToJSArray(nsArray);
+        var listeMarker = utilsModule.iOSNativeHelper.collections.nsArrayToJSArray(nsArray);
         _mapView.notifyMarkerTapped(listeMarker);
         return false;
     };
