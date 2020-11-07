@@ -1,5 +1,5 @@
 {
-  "name": "nativescript-oniq-google-maps-utils",
+  "name": "@OniQ/nativescript-google-maps-utils",
   "version": "1.0.18",
   "description": "A NativeScript Goole maps utils for IOS & Android.",
   "main": "index",
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "https://github.com/OniQ/Nativescript-Danem-Google-Maps-Utils"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/OniQ" },
   "scripts": {
     "tslint": "tslint --project tsconfig.json",
     "tsc": "tsc --project tsconfig.json",
