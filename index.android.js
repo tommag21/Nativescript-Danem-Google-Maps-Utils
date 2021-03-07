@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils = require("tns-core-modules/utils/utils");
+var utils = require("@nativescript/core/utils");
 var ClusterManager = com.google.maps.android.clustering.ClusterManager;
 var DefaultClusterRenderer = com.google.maps.android.clustering.view.DefaultClusterRenderer;
 var HeatmapTileProvider = com.google.maps.android.heatmaps.HeatmapTileProvider;
