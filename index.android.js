@@ -11,7 +11,8 @@ var heatmaps = {
     provider: "",
     overlay: "",
 }
-var Image = require('@nativescript/core/ui/image');
+var imageModule = require("@nativescript/core/ui/image");
+var imageSourceModule = require('@nativescript/core/image-source');
 
 function moveCamera(latitude, longitude) {
     if (_mapView.gMap === undefined) {
@@ -55,9 +56,19 @@ function setupMarkerCluster(mapView, markers) {
         init: function () { },
         onBeforeClusterItemRendered: function (item, markerOptions) {
             this.super.onBeforeClusterItemRendered(item, markerOptions);
-            var mIcon = Image;
-            mIcon.imageSource = item.marker.icon.imageSource;
-            var androidIcon = com.google.android.gms.maps.model.BitmapDescriptorFactory.fromBitmap(mIcon.imageSource.android);
+
+            var icon = item.marker.infoWindowTemplate;
+            var value = null;
+            if (typeof icon === 'string') {
+                var resourceName = String(icon);
+                var imageSource = imageSourceModule.ImageSource.fromResourceSync(resourceName);
+                if (imageSource) {
+                  var image = new imageModule.Image();
+                  image.imageSource = imageSource;
+                  value = image;
+                }
+            }
+            var androidIcon = (value) ? com.google.android.gms.maps.model.BitmapDescriptorFactory.fromBitmap(value.imageSource.android) : null;
             markerOptions.icon(androidIcon);
         }
     });
