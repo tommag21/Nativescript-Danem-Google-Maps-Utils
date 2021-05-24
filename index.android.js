@@ -50,7 +50,6 @@ const CustomClusterItem = java.lang.Object.extend({
 });
 
 function setupMarkerCluster(mapView, markers) {
-    console.log(mapView, markers.length)
     _mapView = mapView
     const CustomClusterRenderer = DefaultClusterRenderer.extend({
         init: function () { },
