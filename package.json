@@ -1,6 +1,6 @@
 {
   "name": "@oniq/nativescript-google-maps-utils",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "A NativeScript Goole maps utils for IOS & Android.",
   "main": "index",
   "typings": "index.d.ts",

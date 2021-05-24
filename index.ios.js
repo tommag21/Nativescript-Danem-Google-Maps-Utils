@@ -106,7 +106,9 @@ function moveCamera(latitude, longitude, zoom) {
 exports.moveCamera = moveCamera;
 
 function clearMap() {
-    _mapView.gMap.clear();
+    if(_mapView.gMap) {
+        _mapView.gMap.clear();
+    }
     _mapView = {};
 }
 exports.clearMap = clearMap;

@@ -16,7 +16,7 @@ NativeScript Google Maps SDK utility library IOS & Android :
 # Install
 
 ```
-npm install @oniq/nativescript-google-maps-utils@1.0.22
+npm install @oniq/nativescript-google-maps-utils@1.0.23
 ```
 
 
