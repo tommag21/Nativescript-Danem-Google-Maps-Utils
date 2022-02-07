@@ -62,9 +62,9 @@ function setupMarkerCluster(mapView, markers) {
                 var resourceName = String(icon);
                 var imageSource = imageSourceModule.ImageSource.fromResourceSync(resourceName);
                 if (imageSource) {
-                  var image = new imageModule.Image();
-                  image.imageSource = imageSource;
-                  value = image;
+                    var image = new imageModule.Image();
+                    image.imageSource = imageSource;
+                    value = image;
                 }
             }
             var androidIcon = (value) ? com.google.android.gms.maps.model.BitmapDescriptorFactory.fromBitmap(value.imageSource.android) : null;
