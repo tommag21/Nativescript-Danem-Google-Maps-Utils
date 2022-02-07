@@ -85,9 +85,10 @@ var GMUClusterRendererDelegateImpl = (function (_super) {
     GMUClusterRendererDelegateImpl.prototype.rendererWillRenderMarker = function (renderer, marker) {
         var owner = this._owner.get();
         if (marker.userData instanceof POIItem) {
-            var mIcon = Image;
-            mIcon.imageSource = imageSourceModule.ImageSource.fromResourceSync(marker.userData.imageUrl);
-            marker.icon = mIcon.imageSource.ios;
+            marker.icon = UIImage.alloc().initWithCGImageScaleOrientation(imageSourceModule.ImageSource.fromResourceSync(marker.userData.imageUrl).ios.CGImage, 4, 0);
+            // var mIcon = Image;
+            // mIcon.imageSource = imageSourceModule.ImageSource.fromResourceSync(marker.userData.imageUrl);
+            // marker.icon = mIcon.imageSource.ios;
             //marker.title = "test"
         } else {
             // cluster marker
