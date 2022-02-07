@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var _mapView = {};
 var heatmaps = {}
-const imageSourceModule = require("tns-core-modules/image-source");
-const Image = require('@nativescript/core/ui/image');
+const imageSourceModule = require("@nativescript/core/image-source");
 const utilsModule = require("@nativescript/core/utils");
 
 /***************************************** CLUSTERING *****************************************/
