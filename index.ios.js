@@ -86,7 +86,7 @@ var GMUClusterRendererDelegateImpl = (function (_super) {
         var owner = this._owner.get();
         if (marker.userData instanceof POIItem) {
             var mIcon = Image;
-            mIcon.imageSource = imageSourceModule.fromResource(marker.userData.imageUrl);
+            mIcon.imageSource = imageSourceModule.ImageSource.fromResourceSync(marker.userData.imageUrl);
             marker.icon = mIcon.imageSource.ios;
             //marker.title = "test"
         } else {
@@ -119,14 +119,15 @@ function setupMarkerCluster(mapView, markers) {
     var algorithm = GMUNonHierarchicalDistanceBasedAlgorithm.alloc().init();
     var renderer = GMUDefaultClusterRenderer.alloc().initWithMapViewClusterIconGenerator(mapView.nativeView, iconGenerator)
     var clusterManager = GMUClusterManager.alloc().initWithMapAlgorithmRenderer(mapView.nativeView, algorithm, renderer)
-    var clusterManagerDelegate = GMUClusterManagerDelegateImpl.initWithMapAlgorithmRenderer(mapView.nativeView, algorithm, renderer, new WeakRef(this))
+    var clusterManagerDelegate = GMUClusterManagerDelegateImpl.initWithMapAlgorithmRenderer(mapView.nativeView, algorithm, renderer, new WeakRef(this || {}))
     clusterManager.clearItems();
     clusterManager.setDelegateMapDelegate(clusterManagerDelegate, mapView);
-    var rendererDelegate = GMUClusterRendererDelegateImpl.initWithMapViewClusterIconGenerator(mapView.nativeView, iconGenerator, new WeakRef(this))
+    var rendererDelegate = GMUClusterRendererDelegateImpl.initWithMapViewClusterIconGenerator(mapView.nativeView, iconGenerator, new WeakRef(this || {}))
     renderer.delegate = rendererDelegate;
 
     for (var i = 0; i < markers.length; i++) {
         var clusterItem = POIItem.alloc().initWithPositionNameImageUrlTitle(markers[i].position.ios, markers[i].userData, markers[i].infoWindowTemplate, markers[i].title)
+        clusterItem.imageUrl = markers[i].infoWindowTemplate;
         clusterManager.addItem(clusterItem)
         if (i === markers.length - 1) {
             clusterManager.cluster();
